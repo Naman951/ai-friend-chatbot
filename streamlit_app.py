@@ -61,20 +61,62 @@ st.markdown("""
 HF_API_KEY = os.getenv('HF_API_KEY', '')
 HF_MODEL_URL = "https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium"
 
-# AI Fallback responses
+# AI Fallback responses with personality
 AI_RESPONSES = {
+    # Greetings
     "hello": "Hey there! How are you doing today? 😊",
     "hi": "Hi! Great to see you! What's on your mind? 💭",
-    "how are you": "I'm doing great, thanks for asking! How about you?",
+    "hey": "Hey! What's up? 👋",
+    "greetings": "Hello! Nice to meet you! 💜",
+    
+    # How are you
+    "how are you": "I'm doing great, thanks for asking! How about you? 😊",
+    "how are u": "I'm amazing! Thanks for asking! What about you? 🌟",
+    "how u doing": "I'm great! Living my best AI life! 🤖💜",
+    
+    # Personal questions
+    "what is your name": "I'm your AI Friend! You can call me anything you like! 💜",
+    "what's your name": "I'm your AI Friend! Nice to chat with you! 🤖",
+    "your name": "I don't have a specific name, but I'm your AI Friend! 💜",
+    "who are you": "I'm your AI friend! I'm here to have fun conversations with you! 🤖💜",
+    
+    "what is your age": "I'm brand new! I was just created to chat with you! 🎂",
+    "what's your age": "Age is just a number! I'm timeless! ✨",
+    "how old are you": "I'm as old as our conversation! Born to chat with you! 🚀",
+    
+    "where are you from": "I live in the cloud! ☁️ That's where all AI friends hang out! 🤖",
+    "what's your gender": "I'm genderless! Just a friendly AI here to chat! 💜",
+    
+    # What you can do
+    "what can you do": "I can chat with you about anything! Ask me questions, tell me about your day, or just have fun! 🎉",
+    "what can u do": "I'm here to chat, listen, and be your AI friend! What would you like to talk about? 💬",
+    "your abilities": "I can chat, listen, and make you smile! That's what I do best! 😊",
+    
+    # Gratitude
     "thanks": "You're welcome! Happy to help! 🙌",
+    "thank you": "Anytime! I'm always here for you! 💜",
+    "thx": "No problem! 😄",
+    "appreciate": "Aw, thanks! I appreciate you too! 💕",
+    
+    # Goodbye
     "goodbye": "Goodbye! Talk to you later! 👋",
     "bye": "See you soon! Take care! 👋",
+    "bye bye": "Bye! Come chat with me again! 👋😊",
+    "gotta go": "No problem! See you soon! 👋",
+    
+    # Help & Support
     "help": "I'm here to chat with you! Just type anything and I'll respond. What would you like to talk about?",
-    "who are you": "I'm your AI friend! I'm here to have fun conversations with you! 🤖💜",
-    "what can you do": "I can chat with you about anything! Try asking me questions or telling me about your day!",
+    "can you help": "Of course! I'm here to help however I can! What do you need? 💪",
+    
+    # Other questions
+    "why are you here": "I'm here to be your AI friend and chat with you! Making friends is my passion! 💜",
+    "are you real": "I'm as real as AI can be! And I'm here for you! 🤖✨",
+    "are you human": "Nope! I'm an AI, but I'm a very friendly one! 🤖💜",
+    "do you sleep": "Nope! I'm always awake and ready to chat! 💪",
+    "what do you like": "I like chatting with you! You're awesome! 🌟",
 }
 
-# Fallback responses
+# Fallback responses for unknown questions
 GENERIC_RESPONSES = [
     "That's interesting! Tell me more! 🤔",
     "Wow, I didn't know that! What else? 😊",
@@ -83,6 +125,14 @@ GENERIC_RESPONSES = [
     "Tell me more about that! 👂",
     "That's awesome! What else is on your mind? 💭",
     "I hear you! That's really something! 🌟",
+    "Sounds fun! Keep going! 🎊",
+    "Nice! I like your style! 😄",
+    "That's pretty cool! 👍",
+    "Definitely! Tell me more! 📢",
+    "Awesome! You're fun to chat with! 🤩",
+    "Love that energy! 💥",
+    "That's sweet! 💕",
+    "Amazing! What else? 🚀",
 ]
 
 def get_fallback_response(user_input):
