@@ -11,7 +11,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, 
+     resources={r"/api/*": {"origins": "*"}},
+     allow_headers=["Content-Type"],
+     methods=["GET", "POST", "OPTIONS"])
 
 # Configuration
 HF_API_KEY = os.getenv('HF_API_KEY', '')
