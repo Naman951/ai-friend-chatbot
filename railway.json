@@ -1,6 +1,9 @@
-[build]
-builder = "nixpacks"
+{
+  "build": {
+    "builder": "dockerfile"
+  },
+  "deploy": {
+    "startCommand": "python backend/app.py"
+  }
+}
 
-[deploy]
-startCommand = "python backend/app.py"
-restartPolicyMaxRetries = 5
